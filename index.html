@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Genrator</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<h1>Meme Genrator</h1>
+
+<body onload="init()">
+    <main class="main-grid-container">
+        <input class="search" type="text" placeholder="search" />
+        <section class="gallery-container"></section>
+        <section class="editor-modal">
+            <h1>Make Your Special Meme Here!</h1> <br>
+            <div class="editor-container">
+                <div class="control">
+                    <input class="text-line" type="text" placeholder="Write your Text here" />
+                    <div class="btns-cont">
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+                        <button></button>
+
+
+                        <button class="clear-btn" onclick="clearCanvas()">CLEAR</button>
+                    </div>
+                    <a href="#" onclick="shareCanvas(this)">Share</a>
+                    <a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a>
+                </div>
+            </div>
+            <div>
+                <div class="canvas-container">
+                    <canvas width="500" height="500"></canvas>
+                </div>
+        </section>
+
+
+
+    </main>
+
+
+
+
+    <script src="js/controller.js"></script>
+    <script src="js/services/service.js"></script>
+    <script src="js/services/storage.js"></script>
+    <script src="js/services/utils.js"></script>
+</body>
+
+</html>
