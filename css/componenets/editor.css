@@ -8,6 +8,8 @@
     width: 100%;
     height: 88%;
     background-color: rgb(208, 226, 226);
+    /* transform: translateX(-100%); */
+
 }
 
 
@@ -20,6 +22,9 @@
     margin: auto;
 }
 
+.show-modal {
+    transform: translateX(0%);
+}
 
 .control {
     height: 70%;
@@ -82,4 +87,11 @@
     width: 70%;
     margin: 40px;
     border-radius: 20px;
+}
+
+.modal.open {
+    /* left: 50%; */
+    /* transition: left 0.5s; */
+    transform: translateX(0%);
+
 }

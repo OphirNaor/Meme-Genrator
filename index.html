@@ -12,10 +12,10 @@
 <h1>Meme Genrator</h1>
 
 <body onload="init()">
-    <main class="main-grid-container">
+    <main class="main-container">
         <input class="search" type="text" placeholder="search" />
         <section class="gallery-container"></section>
-        <section class="editor-modal">
+        <section class="editor-modal hide">
             <h1>Make Your Special Meme Here!</h1> <br>
             <div class="editor-container">
                 <div class="control">
@@ -36,8 +36,9 @@
             </div>
             <div>
                 <div class="canvas-container">
-                    <canvas width="500" height="500"></canvas>
+                    <canvas></canvas>
                 </div>
+                <button onclick="CloseEditor()">Close</button>
         </section>
 
 
@@ -47,8 +48,8 @@
 
 
 
-    <script src="js/controller.js"></script>
-    <script src="js/services/service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/services/meme-service.js"></script>
     <script src="js/services/storage.js"></script>
     <script src="js/services/utils.js"></script>
 </body>
