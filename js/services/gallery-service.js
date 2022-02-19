@@ -50,7 +50,6 @@ function selectImg(elImg) {
     localStorage.clear();
     var imgId = elImg.id;
     var img = getImgById(imgId);
-    console.log(img);
     showCanvas();
     saveCurrImg(img);
     initCanvas();
@@ -67,7 +66,5 @@ function getCurrImg() {
 }
 
 function getImgById(id) {
-    console.log(id);
-    console.log(gImgs);
     return gImgs.find((img) => img.id === id)
 }
