@@ -9,49 +9,108 @@
     <link rel="stylesheet" href="css/style.css">
 
 </head>
-<h1>Meme Genrator</h1>
 
 <body onload="init()">
-    <main class="main-container">
-        <input class="search" type="text" placeholder="search" />
-        <section class="gallery-container"></section>
-        <section class="editor-modal hide">
-            <h1>Make Your Special Meme Here!</h1> <br>
-            <div class="editor-container">
-                <div class="control">
-                    <input class="text-line" type="text" placeholder="Write your Text here" />
-                    <div class="btns-cont">
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-                        <button></button>
-
-
-                        <button class="clear-btn" onclick="clearCanvas()">CLEAR</button>
-                    </div>
-                    <a href="#" onclick="shareCanvas(this)">Share</a>
-                    <a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a>
-                </div>
+    <header class="header flex">
+        <div class="header-container flex align-center space-around column">
+            <ul class="nav clean-list flex align-center">
+                <li data-trans="gallery" class="gallery-link"><a href="#" class="gallery-link"
+                        onclick="showGallery()">Gallery</a></li>
+                <li data-trans="about" class="about-link"><a href="#" class="about-link" onclick="showAbout()">About</a>
+                </li>
+            </ul>
+            <h1>Meme Generator</h1>
+        </div>
+        <select onchange="onSetLang(this.value)">
+            <option selected>Choose language/ בחר שפה</option>
+            <option value="en">English</option>
+            <option value="he">עברית</option>
+        </select>
+    </header>
+    <div class="main-page"></div>
+    <main id="gallery" class="main-container flex align-center column">
+        <div class="filter flex align-center column">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input data-trans="search" list="search-datalist" name="search-datalist" id="search" type="txt"
+                    class="search-words" oninput="searchImg()" placeholder="Search image">
             </div>
-            <div>
-                <div class="canvas-container">
-                    <canvas></canvas>
+        </div>
+        <div class="gallery-images flex">
+            <div class="gallery flex"></div>
+        </div>
+        <div class="container container-canvas-page hide flex align-center space-around column">
+            <canvas id="canvas" class="canvas"></canvas>
+            <div class="editor container flex space-around align-center">
+                <button data-trans="back" class="return-btn" onclick="showGallery()">
+                    <span class="different-color"><i class="fa fa-long-arrow-left"></i></span>Back</button>
+                <div class="txt-container flex space-around align-center ">
+                    <div class="line-text flex column"></div>
+                    <button data-trans="addLine" class="add-line-btn" onclick="addLine()">Add line (up to 2)</button>
                 </div>
-                <button onclick="CloseEditor()">Close</button>
-        </section>
-
-
-
+                <div class="editor-btns container clean-list flex space-around align-center">
+                    <div class="editor-btns-first-line">
+                        <ul class="clean-list flex">
+                            <li><button class="btn color-btn">
+                                    <input type="color" id="colorValue" name="color" value="#ffffff"
+                                        onchange="onChangeColor()" />
+                                    <label for="colorValue"></label>
+                                </button></li>
+                            <li><button class="btn txt-align-btn" onclick="txtAlign('left')"><i
+                                        class="fa fa-align-left"></i></button></li>
+                            <li><button class="btn txt-align-btn" onclick="txtAlign('center')"><i
+                                        class="fa fa-align-center"></i></button></li>
+                            <li><button class="btn txt-align-btn" onclick="txtAlign('right')"><i
+                                        class="fa fa-align-right"></i></button></li>
+                        </ul>
+                    </div>
+                    <div class="editor-btns-second-line">
+                        <ul class="clean-list flex">
+                            <li data-trans="size" class="only-txt only-txt-size-btn">Size</button></li>
+                            <li><button class="btn size-btn size-plus-btn" onclick="onChangeSize(1)"><i
+                                        class="fa fa-plus"></i></button></li>
+                            <li><button class="btn size-btn size-minus-btn" onclick="onChangeSize(-1)"><i
+                                        class="fa fa-minus"></i></button></li>
+                        </ul>
+                    </div>
+                    <div class="editor-btns-third-line">
+                        <ul class="clean-list flex">
+                            <li data-trans="font" class="only-txt only-txt-font">Font</li>
+                            <li>
+                                <select class="select-font btn font-list-btn" onchange="changeFont()">
+                                    <option>Impact</option>
+                                    <option>Arial</option>
+                                    <option>Cursive</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="editor-btns-fourth-line">
+                        <ul class="clean-list flex">
+                            <li data-trans="textShadow" class="only-txt only-txt-shadow">Text Shadow</li>
+                            <li><button class="btn txt-shadow-btn txt-shadow-white-btn" onclick="txtShadow('#ffffff')">
+                                </button></li>
+                            <li><button class="btn txt-shadow-btn txt-shadow-black-btn" onclick="txtShadow('#000000')">
+                                </button></li>
+                        </ul>
+                        <button data-trans="download" class="btn download-btn">
+                            <a href="#" onclick="downloadImg(this)" class="download" download="my-img.jpg">
+                                <span class="different-color"><i class="fa fa-download"></i></span>Download
+                            </a>
+                        </button>
+                    </div>
+                </div>
     </main>
 
+    <footer>Made by Ophir Naor</footer>
 
 
-
-    <script src="js/gallery-controller.js"></script>
-    <script src="js/services/meme-service.js"></script>
+    <script src="https://kit.fontawesome.com/4d9021d997.js" crossorigin="anonymous"></script>
+    <script src="js/main-controller.js"></script>
     <script src="js/services/storage.js"></script>
-    <script src="js/services/utils.js"></script>
+    <script src="js/services/gallery-service.js"></script>
+    <script src="js/services/canvas-service.js"></script>
+    <script src="js/services/i18-service.js"></script>
 </body>
 
 </html>
