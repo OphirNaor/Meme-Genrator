@@ -77,8 +77,13 @@
 }
 
 
-.download:active {
-    color: white;
+
+.inline {
+    height: 50px;
+}
+
+.user-msg {
+    padding: 20px;
 }
 
 .hide {

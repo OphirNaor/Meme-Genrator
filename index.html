@@ -14,18 +14,21 @@
     <header class="header flex">
         <div class="header-container flex align-center space-around column">
             <ul class="nav clean-list flex align-center">
-                <li data-trans="gallery" class="gallery-link"><a href="#" class="gallery-link"
-                        onclick="showGallery()">Gallery</a></li>
-                <li data-trans="about" class="about-link"><a href="#" class="about-link" onclick="showAbout()">About</a>
+                <li class="gallery-link">
+                    <a data-trans="gallery" href="#" class="gallery-link" onclick="showGallery()">Gallery</a>
+                </li>
+                <li class="about-link">
+                    <a data-trans="about" href="#" class="about-link" onclick="showAbout()">About</a>
                 </li>
             </ul>
             <h1>Meme Generator</h1>
         </div>
         <select onchange="onSetLang(this.value)">
-            <option selected>Choose language/ בחר שפה</option>
             <option value="en">English</option>
             <option value="he">עברית</option>
         </select>
+
+
     </header>
     <div class="main-page"></div>
     <main id="gallery" class="main-container flex align-center column">
@@ -34,16 +37,19 @@
                 <i class="fa fa-search"></i>
                 <input data-trans="search" list="search-datalist" name="search-datalist" id="search" type="txt"
                     class="search-words" oninput="searchImg()" placeholder="Search image">
+                <section class="key-words flex"></section>
+                <datalist id="search-datalist"></datalist>
+
+
             </div>
         </div>
+
         <div class="gallery-images flex">
             <div class="gallery flex"></div>
         </div>
         <div class="container container-canvas-page hide flex align-center space-around column">
             <canvas id="canvas" class="canvas"></canvas>
             <div class="editor container flex space-around align-center">
-                <button data-trans="back" class="return-btn" onclick="showGallery()">
-                    <span class="different-color"><i class="fa fa-long-arrow-left"></i></span>Back</button>
                 <div class="txt-container flex space-around align-center ">
                     <div class="line-text flex column"></div>
                     <button data-trans="addLine" class="add-line-btn" onclick="addLine()">Add line (up to 2)</button>
@@ -93,14 +99,42 @@
                             <li><button class="btn txt-shadow-btn txt-shadow-black-btn" onclick="txtShadow('#000000')">
                                 </button></li>
                         </ul>
-                        <button data-trans="download" class="btn download-btn">
-                            <a href="#" onclick="downloadImg(this)" class="download" download="my-img.jpg">
-                                <span class="different-color"><i class="fa fa-download"></i></span>Download
-                            </a>
-                        </button>
+                        <section class="sharing flex column">
+                            <button class="btn download-btn">
+                                <a href="#" onclick="downloadImg(this)" class="download" download="my-img.jpg">
+                                    <span class="different-color"><i class="fa fa-download"></i></span>Download
+                                </a>
+                            </button>
+                            <button class="btn upload-btn">
+                                <a href="#" data-trans="upload-meme" class="upload-btn" onclick="uploadImg()">
+                                    <span class="different-color"><i class="fa fa-upload"></i></span>Upload
+                                    Meme</a>
+                            </button>
+                            <p class="user-msg"></p>
+                            <div class="share-container"></div>
+                        </section>
+                        </setion>
+
                     </div>
                 </div>
+            </div>
     </main>
+    <section class="about hide">
+        <section class="about-container flex align-center">
+            <img src="img/me.jpg">
+            <section class="about-me">
+                <h2 data-trans="my-name">Ophir Naor</h2> <br>
+                <p data-trans="my-about">Full Stuck Web Developer student.
+                    <br> This project was created as part of Coding
+                    Academy's studies
+                </p>
+                <br> Enjoy 😀
+                <br>
+                <a href="https://www.facebook.com/ophir.naor" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://github.com/OphirNaor" target="_blank" class="fa fa-github"></a>
+            </section>
+        </section>
+    </section>
 
     <footer>Made by Ophir Naor</footer>
 

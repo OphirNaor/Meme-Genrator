@@ -4,10 +4,11 @@
     margin: 5px;
     padding: 5px;
     width: 50%;
+    margin: 30px;
 }
 
 
-.return-btn, .download-btn, .download-btn a {
+.download-btn, .download-btn a, .upload-btn, .upload-btn a {
     width: 100%;
     height: 50px;
     line-height: 50px;
@@ -15,10 +16,14 @@
     padding: 0;
 }
 
-.download-btn a {
-    display: block;
+.download-btn a, .upload-btn a {
+    /* display: block; */
     padding: 0;
     width: 100%;
+}
+
+.download:active {
+    color: white;
 }
 
 .add-line-btn, .btn-danger, .right, .left, .up, .down {
@@ -60,4 +65,27 @@
 
 .size-plus-btn, .size-minus-btn, .btn-danger, .txt-align-btn, .right, .left, .up, .down {
     font-size: 1.4rem;
+}
+
+.sharing {
+    gap: 5px;
+}
+
+.sharing a {
+    color: black;
+    width: max-content;
+    text-decoration: none;
+    padding: 3px 7px;
+}
+
+.share-container {
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0px #000;
+    background-color: lightblue;
+}
+
+
+.upload-file-container input {
+    width: 80px;
 }

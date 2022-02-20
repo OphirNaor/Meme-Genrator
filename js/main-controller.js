@@ -1,5 +1,10 @@
 'use strict'
 
+function init() {
+    renderGallery(gImgs);
+    KeyWords()
+}
+
 function toggleHoverGalleryNav() {
     var elGalleryLink = document.querySelector('.gallery-link-a');
     elGalleryLink.classList.toggle('gallery-link-hover');
@@ -15,6 +20,7 @@ function renderGallery(imgs) {
 }
 
 function filterImgs(imgs) {
+
     var userSearch = document.getElementById('search').value;
     if (userSearch === '') return imgs;
     else return imgs.filter(function (img) {
@@ -56,8 +62,8 @@ function showCanvas() {
     elGallery.classList.add('hide');
     var elSearch = document.querySelector('.filter');
     elSearch.classList.add('hide');
-    // var elAbout = document.querySelector('.about');
-    // elAbout.classList.add('hide');
+    var elAbout = document.querySelector('.about');
+    elAbout.classList.add('hide');
     removeActiveOnLink('.gallery-link');
     removeActiveOnLink('.about-link');
 
@@ -198,3 +204,4 @@ function onSetLang(lang) {
     else document.body.classList.remove('rtl')
     doTrans();
 }
+

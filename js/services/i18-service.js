@@ -41,6 +41,11 @@ var gTrans = {
     'download': {
         en: 'Download',
         he: 'הורדה'
+    },
+
+    'upload-meme': {
+        en: 'Upload Meme',
+        he: 'העלאה ושיתוף'
     }
 }
 

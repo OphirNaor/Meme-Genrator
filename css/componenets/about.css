@@ -1,0 +1,29 @@
+.about-container {
+    max-width: 60vw;
+    margin: auto;
+    gap: 2rem;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    font-size: 1.5rem;
+
+}
+
+.about img {
+    max-width: 20vw;
+    height: fit-content;
+    border-radius: 25rem;
+}
+
+.about a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin: 10px;
+    width: 40px;
+    padding: 7px 0;
+    background-color: black;
+    align-items: center;
+}
